@@ -88,6 +88,220 @@
             color: rgba(255,255,255,0.15); font-size: 10px; letter-spacing: 1px; pointer-events: none;
             transition: opacity 1s;
         }
+
+        /* 响应式设计 - 平板和小屏设备 */
+        @media screen and (max-width: 1024px) {
+            h1 { 
+                font-size: 48px; 
+                letter-spacing: 6px; 
+            }
+            
+            #climax-text {
+                font-size: 60px;
+                letter-spacing: 4px;
+            }
+            
+            .upload-btn {
+                padding: 10px 25px;
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+            
+            #webcam-wrapper {
+                width: 100px;
+                height: 75px;
+                bottom: 30px;
+                right: 30px;
+            }
+        }
+
+        /* 响应式设计 - 手机端 */
+        @media screen and (max-width: 768px) {
+            #ui-layer {
+                padding-top: 30px;
+            }
+            
+            h1 { 
+                font-size: 36px; 
+                letter-spacing: 4px; 
+                margin: 0 15px;
+            }
+            
+            #climax-text {
+                font-size: 42px;
+                letter-spacing: 3px;
+                white-space: normal;
+                max-width: 90%;
+                line-height: 1.2;
+            }
+            
+            .upload-wrapper {
+                margin-top: 15px;
+            }
+            
+            .upload-btn {
+                padding: 10px 20px;
+                font-size: 8px;
+                letter-spacing: 2px;
+                border-width: 1px;
+            }
+            
+            .hint-text {
+                font-size: 8px;
+                margin-top: 6px;
+            }
+            
+            #webcam-wrapper {
+                width: 80px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            #mic-hint {
+                bottom: 20px;
+                font-size: 9px;
+                padding: 0 20px;
+                line-height: 1.4;
+            }
+            
+            #mobile-hint {
+                bottom: 85px !important;
+                font-size: 8px !important;
+            }
+            
+            #mobile-hint div {
+                margin: 3px 0;
+            }
+            
+            .loader-text {
+                font-size: 10px;
+                letter-spacing: 4px;
+            }
+            
+            .spinner {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        /* 响应式设计 - 小型手机 */
+        @media screen and (max-width: 480px) {
+            #ui-layer {
+                padding-top: 20px;
+            }
+            
+            h1 { 
+                font-size: 28px; 
+                letter-spacing: 3px; 
+            }
+            
+            #climax-text {
+                font-size: 32px;
+                letter-spacing: 2px;
+                top: 50%;
+            }
+            
+            .upload-btn {
+                padding: 8px 16px;
+                font-size: 7px;
+                letter-spacing: 1.5px;
+            }
+            
+            .hint-text {
+                font-size: 7px;
+            }
+            
+            #webcam-wrapper {
+                width: 60px;
+                height: 45px;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            #mic-hint {
+                font-size: 8px;
+                bottom: 15px;
+            }
+            
+            #mobile-hint {
+                bottom: 80px !important;
+                font-size: 7px !important;
+            }
+            
+            #mobile-hint div {
+                margin: 2px 0;
+            }
+        }
+
+        /* 横屏模式优化 */
+        @media screen and (max-height: 600px) and (orientation: landscape) {
+            #ui-layer {
+                padding-top: 15px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            
+            h1 {
+                font-size: 24px;
+                margin-left: 20px;
+            }
+            
+            .upload-wrapper {
+                margin-top: 0;
+                margin-right: 20px;
+            }
+            
+            #climax-text {
+                font-size: 36px;
+            }
+            
+            #webcam-wrapper {
+                bottom: 10px;
+                right: 10px;
+                width: 70px;
+                height: 52px;
+            }
+            
+            #mic-hint {
+                bottom: 10px;
+                font-size: 8px;
+            }
+            
+            #mobile-hint {
+                bottom: 35px !important;
+                font-size: 7px !important;
+                display: flex !important;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            #mobile-hint div {
+                margin: 0;
+            }
+        }
+
+        /* 触摸设备优化 */
+        @media (hover: none) and (pointer: coarse) {
+            .upload-btn {
+                padding: 12px 24px;
+                font-size: 9px;
+                /* 增大触摸区域 */
+                min-width: 120px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* 改善触摸反馈 */
+            .upload-btn:active {
+                transform: scale(0.95);
+                background: rgba(212, 175, 55, 0.3);
+            }
+        }
     </style>
     
     <style>@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');</style>
@@ -126,6 +340,13 @@
     </div>
     
     <div id="mic-hint">Enable Mic & Say "答应他" at the end</div>
+    
+    <div id="mobile-hint" style="position: absolute; bottom: 60px; width: 100%; text-align: center; color: rgba(255,255,255,0.2); font-size: 9px; letter-spacing: 1px; pointer-events: none; display: none; padding: 0 20px; line-height: 1.5;">
+        <div>👆 单击：聚焦照片</div>
+        <div>👉 右滑：展开照片</div>
+        <div>👆 上滑：求婚场景</div>
+        <div>👆👆 双击：触发高潮/重置</div>
+    </div>
 
     <div id="webcam-wrapper">
         <video id="webcam" autoplay playsinline style="display:none;"></video>
@@ -150,8 +371,8 @@
                 accentRed: 0x8a1c1c,     
             },
             particles: {
-                count: 1800,     
-                dustCount: 3000, 
+                count: window.innerWidth <= 768 ? 900 : 1800,     // 移动端减少粒子数
+                dustCount: window.innerWidth <= 768 ? 1500 : 3000, // 移动端减少尘埃数
                 treeHeight: 24,  
                 treeRadius: 8    
             },
@@ -184,6 +405,15 @@
         let snowFlakes = []; 
 
         async function init() {
+            // 检测移动设备并显示相应提示
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+            if (isMobile) {
+                document.getElementById('mobile-hint').style.display = 'block';
+                document.getElementById('mic-hint').style.display = 'none';
+                // 移动端可能无法使用摄像头手势识别，隐藏提示
+                document.querySelector('.hint-text').textContent = '触摸屏幕开始互动';
+            }
+            
             initThree();
             setupEnvironment(); 
             setupLights();
@@ -195,7 +425,11 @@
             setupPostProcessing();
             setupEvents();
             setupSpeech(); 
-            await initMediaPipe();
+            
+            // 仅在非移动设备上初始化MediaPipe
+            if (!isMobile) {
+                await initMediaPipe();
+            }
             
             const loader = document.getElementById('loader');
             loader.style.opacity = 0;
@@ -271,7 +505,9 @@
         // --- GOLDEN RAIN (Atmospheric) ---
         function startGoldenRain() {
             // Initial burst of pre-existing rain to fill screen
-            for(let i=0; i<300; i++) createSnowFlake(true);
+            const isMobile = window.innerWidth <= 768;
+            const flakeCount = isMobile ? 150 : 300; // 移动端减少初始雨滴数量
+            for(let i=0; i<flakeCount; i++) createSnowFlake(true);
         }
 
         function createSnowFlake(initial = false) {
@@ -319,8 +555,12 @@
 
         function updateSnow(dt) {
             // Constant spawning during climax
-            if (STATE.isClimax && snowFlakes.length < 800) {
-                if (Math.random() > 0.1) createSnowFlake(false);
+            const isMobile = window.innerWidth <= 768;
+            const maxFlakes = isMobile ? 400 : 800; // 移动端限制雨滴数量
+            const spawnRate = isMobile ? 0.2 : 0.1; // 移动端降低生成频率
+            
+            if (STATE.isClimax && snowFlakes.length < maxFlakes) {
+                if (Math.random() > spawnRate) createSnowFlake(false);
             }
 
             for (let i = snowFlakes.length - 1; i >= 0; i--) {
@@ -356,9 +596,17 @@
             camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 1000);
             camera.position.set(0, 2, CONFIG.camera.z); 
 
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: "high-performance" });
+            // 移动端性能优化
+            const isMobile = window.innerWidth <= 768;
+            const pixelRatio = isMobile ? Math.min(window.devicePixelRatio, 1.5) : Math.min(window.devicePixelRatio, 2);
+            
+            renderer = new THREE.WebGLRenderer({ 
+                antialias: !isMobile, // 移动端关闭抗锯齿以提升性能
+                alpha: false, 
+                powerPreference: "high-performance" 
+            });
             renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.setPixelRatio(pixelRatio);
             renderer.toneMapping = THREE.ReinhardToneMapping; 
             renderer.toneMappingExposure = 2.0; 
             container.appendChild(renderer.domElement);
@@ -749,7 +997,11 @@
         function setupEvents() {
             window.addEventListener('resize', () => {
                 camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight); composer.setSize(window.innerWidth, window.innerHeight);
+                const isMobile = window.innerWidth <= 768;
+                const pixelRatio = isMobile ? Math.min(window.devicePixelRatio, 1.5) : Math.min(window.devicePixelRatio, 2);
+                renderer.setPixelRatio(pixelRatio);
+                renderer.setSize(window.innerWidth, window.innerHeight); 
+                composer.setSize(window.innerWidth, window.innerHeight);
             });
             document.getElementById('file-input').addEventListener('change', handleImageUpload);
             window.addEventListener('keydown', (e) => {
@@ -758,6 +1010,116 @@
                     if(recognition) try { recognition.start(); } catch(err){}
                 }
             });
+            
+            // 添加触摸手势支持（用于移动端）
+            let touchStartX = 0, touchStartY = 0;
+            let touchEndX = 0, touchEndY = 0;
+            let lastTapTime = 0;
+            
+            const canvas = renderer.domElement;
+            
+            canvas.addEventListener('touchstart', (e) => {
+                if (e.touches.length === 1) {
+                    touchStartX = e.touches[0].clientX;
+                    touchStartY = e.touches[0].clientY;
+                }
+            }, { passive: true });
+            
+            canvas.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1 && STATE.mode === 'SCATTER') {
+                    e.preventDefault();
+                    const touch = e.touches[0];
+                    const deltaX = (touch.clientX - touchStartX) / window.innerWidth;
+                    const deltaY = (touch.clientY - touchStartY) / window.innerHeight;
+                    
+                    STATE.hand.detected = true;
+                    STATE.hand.x = deltaX * 2;
+                    STATE.hand.y = -deltaY * 2;
+                }
+            }, { passive: false });
+            
+            canvas.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].clientX;
+                touchEndY = e.changedTouches[0].clientY;
+                
+                const now = Date.now();
+                const timeDiff = now - lastTapTime;
+                
+                // 双击切换模式
+                if (timeDiff < 300 && timeDiff > 0) {
+                    handleDoubleTap();
+                }
+                lastTapTime = now;
+                
+                // 滑动手势检测
+                const swipeDistance = Math.abs(touchEndX - touchStartX);
+                const swipeVertical = Math.abs(touchEndY - touchStartY);
+                
+                // 向右滑动 - 展开照片
+                if (swipeDistance > 100 && swipeVertical < 50) {
+                    if (touchEndX > touchStartX) {
+                        if (STATE.mode !== 'SCATTER') {
+                            if (STATE.focusTarget && STATE.mode === 'FOCUS') { 
+                                mainGroup.attach(STATE.focusTarget); 
+                                STATE.focusTarget = null; 
+                            }
+                            STATE.mode = 'SCATTER';
+                        }
+                    }
+                }
+                
+                // 向上滑动 - 显示求婚场景
+                if (swipeVertical > 100 && swipeDistance < 50) {
+                    if (touchEndY < touchStartY) {
+                        if (STATE.mode !== 'TREE' && STATE.mode !== 'PROPOSAL') {
+                            if (STATE.focusTarget && STATE.mode === 'FOCUS') { 
+                                mainGroup.attach(STATE.focusTarget); 
+                                STATE.focusTarget = null; 
+                            }
+                            
+                            if (STATE.storyStage === 0) {
+                                STATE.mode = 'PROPOSAL';
+                                STATE.storyStage = 1;
+                                updateTitle("2025 12 27");
+                            } else {
+                                STATE.mode = 'TREE';
+                                STATE.storyStage = 0;
+                                updateTitle("2021 12 25");
+                            }
+                        }
+                    }
+                }
+                
+                STATE.hand.detected = false;
+            }, { passive: true });
+            
+            // 单击聚焦照片
+            canvas.addEventListener('click', (e) => {
+                if (STATE.mode === 'SCATTER' || STATE.mode === 'FOCUS') {
+                    if (photoMeshes.length > 0) {
+                        if (STATE.focusTarget && STATE.mode === 'FOCUS') {
+                            mainGroup.attach(STATE.focusTarget);
+                        }
+                        STATE.mode = 'FOCUS';
+                        const idx = STATE.grabCount % photoMeshes.length;
+                        STATE.focusTarget = photoMeshes[idx];
+                        STATE.grabCount++; 
+                        scene.attach(STATE.focusTarget);
+                    }
+                }
+            });
+            
+            function handleDoubleTap() {
+                // 双击重置或触发高潮场景
+                if (STATE.isClimax) {
+                    resetExperience();
+                } else if (STATE.mode === 'PROPOSAL') {
+                    // 双击可以作为语音命令的替代方案
+                    if (confirm('确定要答应吗？')) {
+                        triggerClimax();
+                    }
+                }
+            }
         }
 
         function animate() {
